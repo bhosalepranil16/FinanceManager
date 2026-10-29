@@ -1,0 +1,16 @@
+{% load i18n %}
+<div class="sort-control" id="{{ asset_type }}-sort" role="group" aria-label="{% trans 'sort_label' %}">
+    <span class="sort-control-label">{% trans "sort_label" %}</span>
+    <button type="button" class="sort-option" data-sort-field="date" data-default-direction="desc" aria-pressed="false">
+        <span>{% trans "sort_field_date" %}</span>
+        <span class="sort-direction" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="sort-option" data-sort-field="name" data-default-direction="asc" aria-pressed="false">
+        <span>{% trans "sort_field_name" %}</span>
+        <span class="sort-direction" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="sort-option" data-sort-field="value" data-default-direction="desc" aria-pressed="false">
+        <span>{% trans "sort_field_value" %}</span>
+        <span class="sort-direction" aria-hidden="true"></span>
+    </button>
+</div>

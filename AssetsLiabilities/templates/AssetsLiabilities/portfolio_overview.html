@@ -1,0 +1,327 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "portfolio_title" %} - {% trans "app_name" %}{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/portfolio_overview.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% include 'AssetsLiabilities/_sidebar.html' with active_page='dashboard' %}
+
+<!-- Main Content -->
+<main class="main-content" id="mainContent">
+    <div class="page-header">
+        <div>
+            <h1>{% trans "portfolio_title" %}</h1>
+            <p class="subtitle">{% trans "welcome_message" %} {{ user.username }}! 👋 {% trans "welcome_subtitle" %}</p>
+        </div>
+        <div class="header-date">
+            <span class="date-label">{% trans "portfolio_last_updated" %}</span>
+            <span class="date-value">{{ "now"|date:"F d, Y" }}</span>
+        </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="summary-cards">
+        <div class="summary-card card-assets">
+            <div class="card-icon">💰</div>
+            <div class="card-content">
+                <p class="card-label">{% trans "portfolio_total_assets" %}</p>
+                <h2 class="card-value" data-amount="{{ total_assets }}">{{ total_assets }}</h2>
+                <p class="card-sublabel">{{ holdings_label }}</p>
+            </div>
+        </div>
+
+        <div class="summary-card card-liabilities">
+            <div class="card-icon">📉</div>
+            <div class="card-content">
+                <p class="card-label">{% trans "portfolio_total_liabilities" %}</p>
+                <h2 class="card-value" data-amount="{{ total_liabilities }}">{{ total_liabilities }}</h2>
+                <p class="card-sublabel">{{ liabilities_count_label }}</p>
+            </div>
+        </div>
+
+        <div class="summary-card card-networth">
+            <div class="card-icon">📊</div>
+            <div class="card-content">
+                <p class="card-label">{% trans "portfolio_net_worth" %}</p>
+                <h2 class="card-value {% if net_worth >= 0 %}positive{% else %}negative{% endif %}" data-amount="{{ net_worth }}">{{ net_worth }}</h2>
+                <p class="card-sublabel">{% trans "portfolio_net_worth_formula" %}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts and Stats Row -->
+    <div class="dashboard-grid">
+        <!-- Asset Distribution Chart -->
+        <div class="dashboard-card chart-card">
+            <div class="card-header">
+                <h3>{% trans "portfolio_chart_title" %}</h3>
+                <p>{% trans "portfolio_chart_subtitle" %}</p>
+            </div>
+            <div class="card-body">
+                <canvas id="assetDistributionChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Asset Category Stats -->
+        <div class="dashboard-card stats-card">
+            <div class="card-header">
+                <h3>{% trans "portfolio_category_overview" %}</h3>
+                <p>{% trans "portfolio_category_overview_subtitle" %}</p>
+            </div>
+            <div class="card-body">
+                <div class="stat-item">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">🏦</div>
+                    <div class="stat-details">
+                        <div class="stat-name">{% trans "nav_debt_assets" %}</div>
+                        <div class="stat-value" data-amount="{{ debt_total }}">{{ debt_total }}</div>
+                        <div class="stat-count">{{ debt_count_label }}</div>
+                    </div>
+                    <div class="stat-percentage">
+                        {% if total_assets > 0 %}
+                            {% widthratio debt_total total_assets 100 %}%
+                        {% else %}
+                            0%
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb, #f5576c);">📈</div>
+                    <div class="stat-details">
+                        <div class="stat-name">{% trans "nav_stock_assets" %}</div>
+                        <div class="stat-value" data-amount="{{ stock_total }}">{{ stock_total }}</div>
+                        <div class="stat-count">{{ stock_count_label }}</div>
+                    </div>
+                    <div class="stat-percentage">
+                        {% if total_assets > 0 %}
+                            {% widthratio stock_total total_assets 100 %}%
+                        {% else %}
+                            0%
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">📊</div>
+                    <div class="stat-details">
+                        <div class="stat-name">{% trans "nav_mutual_funds" %}</div>
+                        <div class="stat-value" data-amount="{{ mutual_fund_total }}">{{ mutual_fund_total }}</div>
+                        <div class="stat-count">{{ mutual_fund_count_label }}</div>
+                    </div>
+                    <div class="stat-percentage">
+                        {% if total_assets > 0 %}
+                            {% widthratio mutual_fund_total total_assets 100 %}%
+                        {% else %}
+                            0%
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #ffeaa7, #fdcb6e);">💰</div>
+                    <div class="stat-details">
+                        <div class="stat-name">{% trans "nav_gold_assets" %}</div>
+                        <div class="stat-value" data-amount="{{ gold_total }}">{{ gold_total }}</div>
+                        <div class="stat-count">{{ gold_count_label }}</div>
+                    </div>
+                    <div class="stat-percentage">
+                        {% if total_assets > 0 %}
+                            {% widthratio gold_total total_assets 100 %}%
+                        {% else %}
+                            0%
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #fa709a, #fee140);">₿</div>
+                    <div class="stat-details">
+                        <div class="stat-name">{% trans "nav_crypto_assets" %}</div>
+                        <div class="stat-value" data-amount="{{ crypto_total }}">{{ crypto_total }}</div>
+                        <div class="stat-count">{{ crypto_count_label }}</div>
+                    </div>
+                    <div class="stat-percentage">
+                        {% if total_assets > 0 %}
+                            {% widthratio crypto_total total_assets 100 %}%
+                        {% else %}
+                            0%
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #30cfd0, #330867);">🏠</div>
+                    <div class="stat-details">
+                        <div class="stat-name">{% trans "nav_real_estate" %}</div>
+                        <div class="stat-value" data-amount="{{ real_estate_total }}">{{ real_estate_total }}</div>
+                        <div class="stat-count">{{ real_estate_count_label }}</div>
+                    </div>
+                    <div class="stat-percentage">
+                        {% if total_assets > 0 %}
+                            {% widthratio real_estate_total total_assets 100 %}%
+                        {% else %}
+                            0%
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="dashboard-card recent-card">
+            <div class="card-header">
+                <h3>{% trans "portfolio_recent_activity" %}</h3>
+                <p>{% trans "portfolio_recent_activity_subtitle" %}</p>
+            </div>
+            <div class="card-body">
+                {% if recent_assets %}
+                    <div class="recent-list">
+                        {% for item in recent_assets %}
+                            <div class="recent-item">
+                                <div class="recent-icon {% if item.amount < 0 %}liability{% else %}asset{% endif %}">
+                                    {% if item.amount < 0 %}📉{% else %}💰{% endif %}
+                                </div>
+                                <div class="recent-details">
+                                    <div class="recent-name">{{ item.name }}</div>
+                                    <div class="recent-type">{{ item.type }}</div>
+                                </div>
+                                <div class="recent-amount {% if item.amount < 0 %}negative{% else %}positive{% endif %}">
+                                    <span data-amount="{{ item.amount }}">{{ item.amount }}</span>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="empty-state-small">
+                        <p>{% trans "portfolio_recent_activity_empty" %}</p>
+                        <small>{% trans "portfolio_recent_activity_empty_hint" %}</small>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Empty State for New Users -->
+    {% if total_assets == 0 and total_liabilities == 0 %}
+        <div class="welcome-empty-state">
+            <div class="empty-icon">🚀</div>
+            <h3>{% trans "portfolio_welcome_empty_title" %}</h3>
+            <p>{% trans "portfolio_welcome_empty_text" %}</p>
+            <div class="quick-actions">
+                <a href="{% url 'debt_assets_list' %}" class="action-btn">
+                    <span>🏦</span>
+                    <span>{% trans "modal_add_debt_asset" %}</span>
+                </a>
+                <a href="{% url 'stock_assets_list' %}" class="action-btn">
+                    <span>📈</span>
+                    <span>{% trans "portfolio_quick_add_stock" %}</span>
+                </a>
+                <a href="{% url 'mutual_fund_list' %}" class="action-btn">
+                    <span>📊</span>
+                    <span>{% trans "modal_add_mutual_fund" %}</span>
+                </a>
+            </div>
+        </div>
+    {% endif %}
+</main>
+
+{% endblock %}
+
+{% block js_files %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="{% static 'js/portfolio_overview.js' %}"></script>
+<script>
+$(document).ready(function() {
+    // Format amounts in Indian Rupees, same as the other pages (AssetManager.formatCurrency)
+    const currencyFormatter = new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'INR',
+        maximumFractionDigits: 0
+    });
+    $('[data-amount]').each(function() {
+        $(this).text(currencyFormatter.format($(this).data('amount')));
+    });
+
+    // Asset Distribution Chart
+    const ctx = document.getElementById('assetDistributionChart');
+    if (ctx) {
+        {% trans "nav_debt_assets" as chart_label_debt %}
+        {% trans "nav_stock_assets" as chart_label_stock %}
+        {% trans "nav_mutual_funds" as chart_label_mutual_funds %}
+        {% trans "nav_gold_assets" as chart_label_gold %}
+        {% trans "nav_crypto_assets" as chart_label_crypto %}
+        {% trans "nav_real_estate" as chart_label_real_estate %}
+        const data = {
+            labels: [
+                '{{ chart_label_debt|escapejs }}',
+                '{{ chart_label_stock|escapejs }}',
+                '{{ chart_label_mutual_funds|escapejs }}',
+                '{{ chart_label_gold|escapejs }}',
+                '{{ chart_label_crypto|escapejs }}',
+                '{{ chart_label_real_estate|escapejs }}'
+            ],
+            datasets: [{
+                data: [
+                    {{ debt_total }},
+                    {{ stock_total }},
+                    {{ mutual_fund_total }},
+                    {{ gold_total }},
+                    {{ crypto_total }},
+                    {{ real_estate_total }}
+                ],
+                backgroundColor: [
+                    'rgba(102, 126, 234, 0.8)',
+                    'rgba(245, 87, 108, 0.8)',
+                    'rgba(79, 172, 254, 0.8)',
+                    'rgba(253, 203, 110, 0.8)',
+                    'rgba(250, 112, 154, 0.8)',
+                    'rgba(48, 207, 208, 0.8)'
+                ],
+                borderWidth: 0
+            }]
+        };
+
+        const config = {
+            type: 'doughnut',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            font: {
+                                size: 12
+                            },
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.label || '';
+                                const value = context.parsed || 0;
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
+                                return label + ': ₹' + value.toLocaleString('en-IN') + ' (' + percentage + '%)';
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        new Chart(ctx, config);
+    }
+});
+</script>
+{% endblock %}

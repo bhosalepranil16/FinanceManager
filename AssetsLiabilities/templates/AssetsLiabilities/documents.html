@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "nav_documents" %} - {% trans "app_name" %}{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/portfolio_overview.css' %}">
+<link rel="stylesheet" href="{% static 'css/asset_components.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="toast-container"></div>
+
+{% include 'AssetsLiabilities/_sidebar.html' with active_page='documents' %}
+
+<main class="main-content" id="mainContent">
+    <div class="content-section">
+        <div class="section-header">
+            <div>
+                <h1 class="section-title">{% trans "nav_documents" %}</h1>
+                <div class="section-total" id="documents-total">0</div>
+            </div>
+            <button class="btn-add" id="add-documents-btn">
+                <span class="icon-add"></span>
+                {% trans "btn_add_document" %}
+            </button>
+        </div>
+
+        <div id="documents-list" class="loading">
+            <div class="loading-overlay">
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="modal fade" id="documents-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="documents-modal-title">{% trans "modal_add_document" %}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="documents-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="documents-name" class="form-label">{% trans "form_label_document_name" %}</label>
+                        <input type="text" class="form-control" id="documents-name" name="name" maxlength="100" required>
+                        <small class="form-text">{% trans "form_help_document_name" %}</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="documents-file" class="form-label">{% trans "form_label_file" %}</label>
+                        <input type="file" class="form-control" id="documents-file" name="file" accept="{{ accepted_extensions }}" required>
+                        <small class="form-text">{{ file_help_text }}</small>
+                        <small class="form-text d-none" id="documents-current-file"></small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "btn_cancel" %}</button>
+                    <button type="submit" class="btn btn-primary">{% trans "btn_save" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js_files %}
+<script src="{% static 'js/portfolio_overview.js' %}"></script>
+<script src="{% static 'js/asset_manager.js' %}"></script>
+<script src="{% static 'js/document_manager.js' %}"></script>
+<script>
+$(document).ready(function() {
+    // Initialize document manager - constructor sets up event handlers and loads data
+    new DocumentManager({
+        assetType: 'documents',
+        hasTypes: false,
+        maxFileSize: {{ max_file_size }},
+        apiEndpoints: {
+            list: '{% url "documents_list" %}',
+            create: '{% url "documents_create" %}',
+            detail: '/documents/',
+            update: '/documents/',
+            delete: '/documents/'
+        }
+    });
+});
+</script>
+{% endblock %}

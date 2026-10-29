@@ -1,0 +1,49 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% trans "app_name" %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    {% block css_files %}{% endblock %}
+  </head>
+  <body>
+
+    {% block content %} {% endblock %}
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteConfirmModalLabel">{% trans "delete_modal_title" %}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'btn_close' %}"></button>
+                </div>
+                <div class="modal-body">
+                    <p>{% trans "delete_modal_message" %}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "btn_cancel" %}</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">{% trans "btn_delete" %}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% url 'javascript-catalog' %}"></script>
+    {% block js_files %}{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,1541 @@
+# Finance Manager - English Translation
+# Copyright (C) 2026 Finance Manager
+# This file is distributed under the same license as the Finance Manager package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Finance Manager 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-29 21:25+0530\n"
+"PO-Revision-Date: 2026-08-29 21:30+0530\n"
+"Last-Translator: Finance Manager Team\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# ===== AssetsLiabilities Constants =====
+
+#: .\AssetsLiabilities\constants.py:12
+msgid "debt_asset_type_bank_account"
+msgstr "Bank Account Balance"
+
+#: .\AssetsLiabilities\constants.py:13
+msgid "debt_asset_type_fd_rd"
+msgstr "Fixed Deposit / Recurring Deposit"
+
+#: .\AssetsLiabilities\constants.py:14
+msgid "debt_asset_type_govt_securities"
+msgstr "Government Securities"
+
+#: .\AssetsLiabilities\constants.py:15
+msgid "debt_asset_type_debt_mutual_fund"
+msgstr "Debt Mutual Fund"
+
+#: .\AssetsLiabilities\constants.py:24
+msgid "stock_asset_type_large_cap"
+msgstr "Large Cap"
+
+#: .\AssetsLiabilities\constants.py:25
+msgid "stock_asset_type_mid_cap"
+msgstr "Mid Cap"
+
+#: .\AssetsLiabilities\constants.py:26
+msgid "stock_asset_type_small_cap"
+msgstr "Small Cap"
+
+#: .\AssetsLiabilities\constants.py:36
+msgid "gold_asset_type_physical"
+msgstr "Physical Gold"
+
+#: .\AssetsLiabilities\constants.py:37
+msgid "gold_asset_type_digital"
+msgstr "Digital Gold"
+
+#: .\AssetsLiabilities\constants.py:38
+msgid "gold_asset_type_sgb"
+msgstr "Sovereign Gold Bond (SGB)"
+
+#: .\AssetsLiabilities\constants.py:39
+msgid "gold_asset_type_mutual_fund"
+msgstr "Gold Mutual Fund"
+
+# ===== AssetsLiabilities Forms - Debt Assets =====
+
+#: .\AssetsLiabilities\forms.py:26
+msgid "debt_asset_name_required"
+msgstr "Debt asset name is required"
+
+#: .\AssetsLiabilities\forms.py:28
+msgid "debt_asset_name_min_length"
+msgstr "Debt asset name must be at least 3 characters long"
+
+#: .\AssetsLiabilities\forms.py:35
+msgid "debt_asset_type_required"
+msgstr "Debt asset type is required"
+
+#: .\AssetsLiabilities\forms.py:42
+msgid "debt_asset_amount_required"
+msgstr "Amount is required"
+
+#: .\AssetsLiabilities\forms.py:44
+msgid "debt_asset_amount_positive"
+msgstr "Amount must be greater than zero"
+
+# ===== AssetsLiabilities Forms - Stock Assets =====
+
+#: .\AssetsLiabilities\forms.py:59
+msgid "stock_asset_name_required"
+msgstr "Stock asset name is required"
+
+#: .\AssetsLiabilities\forms.py:61
+msgid "stock_asset_name_min_length"
+msgstr "Stock asset name must be at least 3 characters long"
+
+#: .\AssetsLiabilities\forms.py:68
+msgid "stock_asset_type_required"
+msgstr "Stock asset type is required"
+
+#: .\AssetsLiabilities\forms.py:75
+msgid "stock_asset_amount_required"
+msgstr "Amount is required"
+
+#: .\AssetsLiabilities\forms.py:77
+msgid "stock_asset_amount_positive"
+msgstr "Amount must be greater than zero"
+
+# ===== AssetsLiabilities Forms - Mutual Fund Assets =====
+
+#: .\AssetsLiabilities\forms.py:96
+msgid "mutual_fund_asset_name_required"
+msgstr "Mutual fund name is required"
+
+#: .\AssetsLiabilities\forms.py:98
+msgid "mutual_fund_asset_name_min_length"
+msgstr "Mutual fund name must be at least 3 characters long"
+
+#: .\AssetsLiabilities\forms.py:105
+msgid "mutual_fund_asset_amount_required"
+msgstr "Amount is required"
+
+#: .\AssetsLiabilities\forms.py:107
+msgid "mutual_fund_asset_amount_positive"
+msgstr "Amount must be greater than zero"
+
+#: .\AssetsLiabilities\forms.py:114
+msgid "mutual_fund_large_cap_percentage_required"
+msgstr "Large cap percentage is required"
+
+#: .\AssetsLiabilities\forms.py:116 .\AssetsLiabilities\forms.py:125
+#: .\AssetsLiabilities\forms.py:134 .\AssetsLiabilities\forms.py:143
+msgid "mutual_fund_percentage_range_error"
+msgstr "Percentage must be between 0 and 100"
+
+#: .\AssetsLiabilities\forms.py:123
+msgid "mutual_fund_mid_cap_percentage_required"
+msgstr "Mid cap percentage is required"
+
+#: .\AssetsLiabilities\forms.py:132
+msgid "mutual_fund_small_cap_percentage_required"
+msgstr "Small cap percentage is required"
+
+#: .\AssetsLiabilities\forms.py:141
+msgid "mutual_fund_debt_percentage_required"
+msgstr "Debt percentage is required"
+
+#: .\AssetsLiabilities\forms.py:159 .\AssetsLiabilities\models.py:63
+msgid "mutual_fund_percentage_sum_error"
+msgstr "The sum of all percentages must equal exactly 100"
+
+# ===== AssetsLiabilities Forms - Gold Assets =====
+
+#: .\AssetsLiabilities\forms.py:175
+msgid "gold_asset_name_required"
+msgstr "Gold asset name is required"
+
+#: .\AssetsLiabilities\forms.py:177
+msgid "gold_asset_name_min_length"
+msgstr "Gold asset name must be at least 3 characters long"
+
+#: .\AssetsLiabilities\forms.py:184
+msgid "gold_asset_type_required"
+msgstr "Gold asset type is required"
+
+#: .\AssetsLiabilities\forms.py:191
+msgid "gold_asset_amount_required"
+msgstr "Amount is required"
+
+#: .\AssetsLiabilities\forms.py:193
+msgid "gold_asset_amount_positive"
+msgstr "Amount must be greater than zero"
+
+# ===== AssetsLiabilities Forms - Crypto Assets =====
+
+#: .\AssetsLiabilities\forms.py:208
+msgid "crypto_asset_name_required"
+msgstr "Cryptocurrency name is required"
+
+#: .\AssetsLiabilities\forms.py:210
+msgid "crypto_asset_name_min_length"
+msgstr "Cryptocurrency name must be at least 2 characters long"
+
+#: .\AssetsLiabilities\forms.py:217
+msgid "crypto_asset_amount_required"
+msgstr "Amount is required"
+
+#: .\AssetsLiabilities\forms.py:219
+msgid "crypto_asset_amount_positive"
+msgstr "Amount must be greater than zero"
+
+# ===== AssetsLiabilities Forms - Real Estate Assets =====
+
+#: .\AssetsLiabilities\forms.py:234
+msgid "real_estate_asset_name_required"
+msgstr "Real estate asset name is required"
+
+#: .\AssetsLiabilities\forms.py:236
+msgid "real_estate_asset_name_min_length"
+msgstr "Real estate asset name must be at least 3 characters long"
+
+#: .\AssetsLiabilities\forms.py:243
+msgid "real_estate_asset_amount_required"
+msgstr "Amount is required"
+
+#: .\AssetsLiabilities\forms.py:245
+msgid "real_estate_asset_amount_positive"
+msgstr "Amount must be greater than zero"
+
+# ===== AssetsLiabilities Forms - Liabilities =====
+
+#: .\AssetsLiabilities\forms.py:260
+msgid "liability_name_required"
+msgstr "Liability name is required"
+
+#: .\AssetsLiabilities\forms.py:262
+msgid "liability_name_min_length"
+msgstr "Liability name must be at least 3 characters long"
+
+#: .\AssetsLiabilities\forms.py:269
+msgid "liability_amount_required"
+msgstr "Amount is required"
+
+#: .\AssetsLiabilities\forms.py:271
+msgid "liability_amount_positive"
+msgstr "Amount must be greater than zero"
+
+# ===== AssetsLiabilities Forms - Transactions =====
+
+#: .\AssetsLiabilities\forms.py
+msgid "transaction_name_required"
+msgstr "Transaction name is required"
+
+#: .\AssetsLiabilities\forms.py
+msgid "transaction_name_min_length"
+msgstr "Transaction name must be at least 3 characters long"
+
+#: .\AssetsLiabilities\forms.py
+msgid "transaction_from_party_required"
+msgstr "From (giver) is required"
+
+#: .\AssetsLiabilities\forms.py
+msgid "transaction_to_party_required"
+msgstr "To (receiver) is required"
+
+#: .\AssetsLiabilities\forms.py
+msgid "transaction_amount_required"
+msgstr "Amount is required"
+
+#: .\AssetsLiabilities\forms.py
+msgid "transaction_amount_positive"
+msgstr "Amount must be greater than zero"
+
+#: .\AssetsLiabilities\forms.py
+msgid "transaction_parties_same_error"
+msgstr "From and To cannot be the same"
+
+# ===== AssetsLiabilities Models - Field Help Text =====
+
+#: .\AssetsLiabilities\models.py:11
+msgid "debt_asset_name"
+msgstr "Name of the debt asset"
+
+#: .\AssetsLiabilities\models.py:12
+msgid "debt_asset_type"
+msgstr "Type of debt asset"
+
+#: .\AssetsLiabilities\models.py:13
+msgid "debt_asset_amount"
+msgstr "Amount in your currency"
+
+#: .\AssetsLiabilities\models.py:21
+msgid "debt_asset"
+msgstr "Debt Asset"
+
+#: .\AssetsLiabilities\models.py:22
+msgid "debt_assets"
+msgstr "Debt Assets"
+
+#: .\AssetsLiabilities\models.py:28
+msgid "stock_asset_name"
+msgstr "Name of the stock or company"
+
+#: .\AssetsLiabilities\models.py:29
+msgid "stock_asset_type"
+msgstr "Market capitalization type"
+
+#: .\AssetsLiabilities\models.py:30
+msgid "stock_asset_amount"
+msgstr "Amount in your currency"
+
+#: .\AssetsLiabilities\models.py:38
+msgid "stock_asset"
+msgstr "Stock Asset"
+
+#: .\AssetsLiabilities\models.py:39
+msgid "stock_assets"
+msgstr "Stock Assets"
+
+#: .\AssetsLiabilities\models.py:45
+msgid "mutual_fund_asset_name"
+msgstr "Name of the mutual fund"
+
+#: .\AssetsLiabilities\models.py:46
+msgid "mutual_fund_asset_amount"
+msgstr "Total amount invested"
+
+#: .\AssetsLiabilities\models.py:47
+msgid "mutual_fund_large_cap_percentage"
+msgstr "Large cap allocation percentage"
+
+#: .\AssetsLiabilities\models.py:48
+msgid "mutual_fund_mid_cap_percentage"
+msgstr "Mid cap allocation percentage"
+
+#: .\AssetsLiabilities\models.py:49
+msgid "mutual_fund_small_cap_percentage"
+msgstr "Small cap allocation percentage"
+
+#: .\AssetsLiabilities\models.py:50
+msgid "mutual_fund_debt_percentage"
+msgstr "Debt allocation percentage"
+
+#: .\AssetsLiabilities\models.py:74
+msgid "mutual_fund_asset"
+msgstr "Mutual Fund Asset"
+
+#: .\AssetsLiabilities\models.py:75
+msgid "mutual_fund_assets"
+msgstr "Mutual Fund Assets"
+
+#: .\AssetsLiabilities\models.py:81
+msgid "gold_asset_name"
+msgstr "Name of the gold asset"
+
+#: .\AssetsLiabilities\models.py:82
+msgid "gold_asset_type"
+msgstr "Type of gold investment"
+
+#: .\AssetsLiabilities\models.py:83
+msgid "gold_asset_amount"
+msgstr "Amount in your currency"
+
+#: .\AssetsLiabilities\models.py:91
+msgid "gold_asset"
+msgstr "Gold Asset"
+
+#: .\AssetsLiabilities\models.py:92
+msgid "gold_assets"
+msgstr "Gold Assets"
+
+#: .\AssetsLiabilities\models.py:98
+msgid "crypto_asset_name"
+msgstr "Name of the cryptocurrency"
+
+#: .\AssetsLiabilities\models.py:99
+msgid "crypto_asset_amount"
+msgstr "Amount in your currency"
+
+#: .\AssetsLiabilities\models.py:107
+msgid "crypto_asset"
+msgstr "Cryptocurrency Asset"
+
+#: .\AssetsLiabilities\models.py:108
+msgid "crypto_assets"
+msgstr "Cryptocurrency Assets"
+
+#: .\AssetsLiabilities\models.py:114
+msgid "real_estate_asset_name"
+msgstr "Name or address of the property"
+
+#: .\AssetsLiabilities\models.py:115
+msgid "real_estate_asset_amount"
+msgstr "Current market value"
+
+#: .\AssetsLiabilities\models.py:123
+msgid "real_estate_asset"
+msgstr "Real Estate Asset"
+
+#: .\AssetsLiabilities\models.py:124
+msgid "real_estate_assets"
+msgstr "Real Estate Assets"
+
+#: .\AssetsLiabilities\models.py:130
+msgid "liability_name"
+msgstr "Name of the liability"
+
+#: .\AssetsLiabilities\models.py:131
+msgid "liability_amount"
+msgstr "Outstanding amount"
+
+#: .\AssetsLiabilities\models.py:139
+msgid "liability"
+msgstr "Liability"
+
+#: .\AssetsLiabilities\models.py:140
+msgid "liabilities"
+msgstr "Liabilities"
+
+#: .\AssetsLiabilities\models.py
+msgid "transaction_name"
+msgstr "Short title of the transaction"
+
+#: .\AssetsLiabilities\models.py
+msgid "transaction_from_party"
+msgstr "Person or account the money comes from"
+
+#: .\AssetsLiabilities\models.py
+msgid "transaction_to_party"
+msgstr "Person or account the money goes to"
+
+#: .\AssetsLiabilities\models.py
+msgid "transaction_amount"
+msgstr "Amount in your currency"
+
+#: .\AssetsLiabilities\models.py
+msgid "transaction"
+msgstr "Transaction"
+
+#: .\AssetsLiabilities\models.py
+msgid "transactions"
+msgstr "Transactions"
+
+# ===== Users Forms - Validation Messages =====
+
+#: .\Users\forms.py:19
+msgid "user_first_name_required"
+msgstr "First name is required"
+
+#: .\Users\forms.py:21
+msgid "user_first_name_min_length"
+msgstr "First name must be at least 2 characters long"
+
+#: .\Users\forms.py:23
+msgid "user_first_name_alpha_only"
+msgstr "First name can only contain letters and spaces"
+
+#: .\Users\forms.py:30
+msgid "user_last_name_required"
+msgstr "Last name is required"
+
+#: .\Users\forms.py:32
+msgid "user_last_name_min_length"
+msgstr "Last name must be at least 2 characters long"
+
+#: .\Users\forms.py:34
+msgid "user_last_name_alpha_only"
+msgstr "Last name can only contain letters and spaces"
+
+#: .\Users\forms.py:41
+msgid "user_country_code_required"
+msgstr "Country code is required"
+
+#: .\Users\forms.py:44
+msgid "user_country_code_invalid_format"
+msgstr "Country code must be + followed by 1 to 3 digits (e.g., +91, +1)"
+
+#: .\Users\forms.py:51
+msgid "user_mobile_number_required"
+msgstr "Mobile number is required"
+
+#: .\Users\forms.py:57
+msgid "user_mobile_number_length_error"
+msgstr "Mobile number must be exactly 10 digits"
+
+#: .\Users\forms.py:60
+msgid "user_mobile_number_digits_only"
+msgstr "Mobile number can only contain digits"
+
+# ===== Users Models - Field Help Text =====
+
+#: .\Users\models.py:9
+msgid "user_first_name"
+msgstr "User's first name"
+
+#: .\Users\models.py:10
+msgid "user_last_name"
+msgstr "User's last name"
+
+#: .\Users\models.py:11
+msgid "user_country_code"
+msgstr "Country code (e.g., +91)"
+
+#: .\Users\models.py:12
+msgid "user_mobile_number"
+msgstr "10-digit mobile number"
+
+#: .\Users\models.py:20
+msgid "user_additional_data"
+msgstr "User Additional Data"
+
+#: .\Users\models.py:21
+msgid "users_additional_data"
+msgstr "Users Additional Data"
+
+# ===== Portfolio Overview Template =====
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_title"
+msgstr "Portfolio Overview"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "app_name"
+msgstr "Finance Manager"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "overview_section"
+msgstr "Overview"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "nav_dashboard"
+msgstr "Dashboard"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "assets_liabilities_section"
+msgstr "Assets & Liabilities"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "nav_debt_assets"
+msgstr "Debt Assets"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "nav_stock_assets"
+msgstr "Stock Assets"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "nav_mutual_funds"
+msgstr "Mutual Funds"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "nav_gold_assets"
+msgstr "Gold Assets"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "nav_crypto_assets"
+msgstr "Crypto Assets"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "nav_real_estate"
+msgstr "Real Estate"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "nav_liabilities"
+msgstr "Liabilities"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\_sidebar.html
+msgid "user_section"
+msgstr "User"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "nav_user_profile"
+msgstr "User Profile"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "nav_logout"
+msgstr "Logout"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\_sidebar.html
+msgid "tools_section"
+msgstr "Tools"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\_sidebar.html
+msgid "nav_transactions"
+msgstr "Transfers & Dues"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_subtitle"
+msgstr "Track and manage your financial assets and liabilities"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "welcome_message"
+msgstr "Welcome back,"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "welcome_subtitle"
+msgstr "Here's your financial overview at a glance"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "coming_soon_title"
+msgstr "Dashboard Content Coming Soon"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "coming_soon_description"
+msgstr "Your financial dashboard will display charts, summaries, and insights here."
+
+
+# ===== Asset Management UI =====
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "btn_add_asset"
+msgstr "Add Asset"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "btn_cancel"
+msgstr "Cancel"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "btn_save"
+msgstr "Save"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "modal_add_debt_asset"
+msgstr "Add Debt Asset"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "modal_add_stock_asset"
+msgstr "Add Stock Asset"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "modal_add_mutual_fund"
+msgstr "Add Mutual Fund"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "modal_add_gold_asset"
+msgstr "Add Gold Asset"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "modal_add_crypto_asset"
+msgstr "Add Crypto Asset"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "modal_add_real_estate"
+msgstr "Add Real Estate"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "modal_add_liability"
+msgstr "Add Liability"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "form_label_name"
+msgstr "Name"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "form_label_type"
+msgstr "Type"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "form_label_amount"
+msgstr "Amount"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "form_select_placeholder"
+msgstr "Select a type..."
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "form_help_amount"
+msgstr "Enter amount in INR"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "form_label_large_cap_percentage"
+msgstr "Large Cap %"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "form_label_mid_cap_percentage"
+msgstr "Mid Cap %"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "form_label_small_cap_percentage"
+msgstr "Small Cap %"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "form_label_debt_percentage"
+msgstr "Debt %"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\*.html
+msgid "form_help_percentage"
+msgstr "All percentages must add up to 100%"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\transactions.html
+msgid "btn_add_transaction"
+msgstr "Add Transaction"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\transactions.html
+msgid "modal_add_transaction"
+msgstr "Add Transaction"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\transactions.html
+msgid "form_label_from_party"
+msgstr "From"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\transactions.html
+msgid "form_help_from_party"
+msgstr "Who gives or owes the money, e.g. Father or AU Bank"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\transactions.html
+msgid "form_label_to_party"
+msgstr "To"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\transactions.html
+msgid "form_help_to_party"
+msgstr "Who receives the money or is owed, e.g. AU Bank or Axis Bank"
+
+# ===== Base Template - Delete Confirmation =====
+
+#: .\templates\base.html
+msgid "delete_modal_title"
+msgstr "Confirm Delete"
+
+#: .\templates\base.html
+msgid "delete_modal_message"
+msgstr "Are you sure you want to delete this item? This action cannot be undone."
+
+#: .\templates\base.html
+msgid "btn_close"
+msgstr "Close"
+
+#: .\templates\base.html
+msgid "btn_delete"
+msgstr "Delete"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "btn_edit"
+msgstr "Edit"
+
+# ===== Login / Sign Up Template =====
+
+#: .\Users\templates\Users\login_signup.html
+msgid "auth_page_title"
+msgstr "Login / Sign Up"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "auth_tagline"
+msgstr "Manage your finances with ease"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "auth_tab_login"
+msgstr "Login"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "auth_tab_signup"
+msgstr "Sign Up"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "btn_login"
+msgstr "Login"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "btn_signup"
+msgstr "Sign Up"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "auth_no_account"
+msgstr "Don't have an account?"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "auth_signup_link"
+msgstr "Sign up here"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "auth_have_account"
+msgstr "Already have an account?"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "auth_login_link"
+msgstr "Login here"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "form_label_username"
+msgstr "Username"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "form_label_password"
+msgstr "Password"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "form_label_confirm_password"
+msgstr "Confirm Password"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "form_label_email"
+msgstr "Email"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "form_label_first_name"
+msgstr "First Name"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "form_label_last_name"
+msgstr "Last Name"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "form_label_country_code"
+msgstr "Country Code"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "form_label_mobile_number"
+msgstr "Mobile Number"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "form_help_username_unique"
+msgstr "Username must be unique"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "form_help_country_code"
+msgstr "+ followed by 1 to 3 digits (e.g., +91, +1)"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "form_help_mobile_number"
+msgstr "Enter 10 digits only (without country code)"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "placeholder_login_username"
+msgstr "Enter your username"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "placeholder_login_password"
+msgstr "Enter your password"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "placeholder_signup_username"
+msgstr "Choose a username"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "placeholder_email"
+msgstr "Enter your email"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "placeholder_first_name"
+msgstr "Enter your first name"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "placeholder_last_name"
+msgstr "Enter your last name"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "placeholder_mobile_number"
+msgstr "Enter 10-digit mobile number"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "placeholder_signup_password"
+msgstr "Choose a strong password"
+
+#: .\Users\templates\Users\login_signup.html
+msgid "placeholder_confirm_password"
+msgstr "Confirm your password"
+
+# ===== Forgot Password =====
+
+#: .\Users\templates\Users\login_signup.html
+msgid "auth_forgot_password_link"
+msgstr "Forgot password?"
+
+#: .\Users\templates\Users\password_reset.html
+msgid "auth_back_to_login"
+msgstr "Back to login"
+
+#: .\Users\templates\Users\password_reset.html
+msgid "password_reset_title"
+msgstr "Forgot Password"
+
+#: .\Users\templates\Users\password_reset.html
+msgid "password_reset_intro"
+msgstr "Enter your registered email address and we will send you a link to reset your password."
+
+#: .\Users\templates\Users\password_reset.html
+msgid "btn_send_reset_link"
+msgstr "Send Reset Link"
+
+#: .\Users\templates\Users\password_reset_done.html
+msgid "password_reset_done_title"
+msgstr "Check Your Email"
+
+#: .\Users\templates\Users\password_reset_done.html
+msgid "password_reset_done_text"
+msgstr "If an account exists for the email you entered, we have sent instructions to reset your password. Please check your inbox and spam folder."
+
+#: .\Users\templates\Users\password_reset_confirm.html
+msgid "password_reset_confirm_title"
+msgstr "Set New Password"
+
+#: .\Users\templates\Users\password_reset_confirm.html
+msgid "form_label_new_password"
+msgstr "New Password"
+
+#: .\Users\templates\Users\password_reset_confirm.html
+msgid "form_label_confirm_new_password"
+msgstr "Confirm New Password"
+
+#: .\Users\templates\Users\password_reset_confirm.html
+msgid "placeholder_new_password"
+msgstr "Enter your new password"
+
+#: .\Users\templates\Users\password_reset_confirm.html
+msgid "placeholder_confirm_new_password"
+msgstr "Confirm your new password"
+
+#: .\Users\templates\Users\password_reset_confirm.html
+msgid "btn_reset_password"
+msgstr "Reset Password"
+
+#: .\Users\templates\Users\password_reset_confirm.html
+msgid "password_reset_invalid_link_title"
+msgstr "Link expired or invalid"
+
+#: .\Users\templates\Users\password_reset_confirm.html
+msgid "password_reset_invalid_link_text"
+msgstr "This password reset link is invalid, has expired or has already been used. Please request a new one."
+
+#: .\Users\templates\Users\password_reset_confirm.html
+msgid "password_reset_request_new"
+msgstr "Request a new link"
+
+#: .\Users\templates\Users\password_reset_complete.html
+msgid "password_reset_complete_title"
+msgstr "Password Changed"
+
+#: .\Users\templates\Users\password_reset_complete.html
+msgid "password_reset_complete_text"
+msgstr "Your password has been reset successfully. You can now log in with your new password."
+
+#: .\Users\templates\Users\password_reset_complete.html
+msgid "btn_go_to_login"
+msgstr "Go to Login"
+
+#: .\Users\templates\Users\password_reset_subject.txt
+msgid "password_reset_email_subject"
+msgstr "Reset your Finance Manager password"
+
+#: .\Users\templates\Users\password_reset_email.txt
+msgid "password_reset_email_intro"
+msgstr "You requested a password reset for your Finance Manager account. Open the link below to choose a new password:"
+
+#: .\Users\templates\Users\password_reset_email.txt
+msgid "password_reset_email_username"
+msgstr "Your username:"
+
+#: .\Users\templates\Users\password_reset_email.txt
+msgid "password_reset_email_ignore"
+msgstr "If you did not request this, you can safely ignore this email. The link can be used only once and expires in 1 hour."
+
+# ===== Users Dashboard Template =====
+
+#: .\Users\templates\Users\dashboard.html
+msgid "dashboard_coming_soon_heading"
+msgstr "Dashboard Coming Soon"
+
+#: .\Users\templates\Users\dashboard.html
+msgid "dashboard_coming_soon_text"
+msgstr "Your financial dashboard will be displayed here."
+
+# ===== Users Views - Messages =====
+
+#: .\Users\views.py
+msgid "msg_login_success"
+msgstr "Successfully logged in!"
+
+#: .\Users\views.py
+msgid "msg_login_invalid"
+msgstr "Invalid username or password."
+
+#: .\Users\views.py
+msgid "msg_signup_password_mismatch"
+msgstr "Passwords do not match."
+
+#: .\Users\views.py
+msgid "msg_signup_username_exists"
+msgstr "Username already exists."
+
+#: .\Users\views.py
+msgid "msg_signup_email_exists"
+msgstr "Email already exists."
+
+#: .\Users\views.py
+msgid "msg_signup_success"
+msgstr "Account created successfully! Please login."
+
+#: .\Users\views.py
+msgid "msg_signup_error"
+msgstr "Error creating account: %(error)s"
+
+#: .\Users\views.py
+msgid "msg_logout_success"
+msgstr "Successfully logged out!"
+
+# ===== Portfolio Overview Template - Dashboard Content =====
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_last_updated"
+msgstr "Last Updated:"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_total_assets"
+msgstr "Total Assets"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_total_liabilities"
+msgstr "Total Liabilities"
+
+#: .\AssetsLiabilities\views.py
+msgid "portfolio_across_holdings"
+msgstr "Across %(holdings)s holdings"
+
+#: .\AssetsLiabilities\views.py
+msgid "item_count"
+msgid_plural "item_count_plural"
+msgstr[0] "%(counter)s item"
+msgstr[1] "%(counter)s items"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_net_worth"
+msgstr "Net Worth"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_net_worth_formula"
+msgstr "Assets - Liabilities"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_chart_title"
+msgstr "Asset Distribution"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_chart_subtitle"
+msgstr "Breakdown by category"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_category_overview"
+msgstr "Category Overview"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_category_overview_subtitle"
+msgstr "Your asset portfolio"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_recent_activity"
+msgstr "Recent Activity"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_recent_activity_subtitle"
+msgstr "Latest additions"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_recent_activity_empty"
+msgstr "No recent activity"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_recent_activity_empty_hint"
+msgstr "Start adding your assets to see them here"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_welcome_empty_title"
+msgstr "Ready to Start Your Financial Journey?"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_welcome_empty_text"
+msgstr "Begin by adding your first asset or liability from the sidebar"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\portfolio_overview.html
+msgid "portfolio_quick_add_stock"
+msgstr "Add Stock"
+
+# ===== AssetsLiabilities Views - Recent Activity Types =====
+
+#: .\AssetsLiabilities\views.py
+msgid "recent_type_debt_asset"
+msgstr "Debt Asset"
+
+#: .\AssetsLiabilities\views.py
+msgid "recent_type_stock_asset"
+msgstr "Stock Asset"
+
+#: .\AssetsLiabilities\views.py
+msgid "recent_type_mutual_fund"
+msgstr "Mutual Fund"
+
+#: .\AssetsLiabilities\views.py
+msgid "recent_type_gold_asset"
+msgstr "Gold Asset"
+
+#: .\AssetsLiabilities\views.py
+msgid "recent_type_crypto_asset"
+msgstr "Crypto Asset"
+
+#: .\AssetsLiabilities\views.py
+msgid "recent_type_real_estate"
+msgstr "Real Estate"
+
+#: .\AssetsLiabilities\views.py
+msgid "recent_type_liability"
+msgstr "Liability"
+
+# ===== Mutual Funds Template =====
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\mutual_funds.html
+msgid "form_label_asset_allocation"
+msgstr "Asset Allocation (Must sum to 100%)"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\mutual_funds.html
+msgid "form_label_current_total"
+msgstr "Current Total:"
+
+# ===== Asset Manager JavaScript =====
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "asset_name_debt_assets"
+msgstr "Debt Assets"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "asset_name_stock_assets"
+msgstr "Stock Assets"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "asset_name_mutual_funds"
+msgstr "Mutual Funds"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "asset_name_gold_assets"
+msgstr "Gold Assets"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "asset_name_crypto_assets"
+msgstr "Crypto Assets"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "asset_name_real_estate"
+msgstr "Real Estate"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "asset_name_liabilities"
+msgstr "Liabilities"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "asset_name_transactions"
+msgstr "Transactions"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "label_debt"
+msgstr "Debt"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "label_added"
+msgstr "Added:"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "js_empty_title"
+msgstr "No assets yet"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "js_empty_hint"
+msgstr "Click the + button to add your first %s"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "js_modal_add_title"
+msgstr "Add %s"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "js_modal_edit_title"
+msgstr "Edit %s"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "js_load_assets_failed"
+msgstr "Failed to load assets"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "js_load_details_failed"
+msgstr "Failed to load asset details"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "js_asset_added"
+msgstr "Asset added successfully"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "js_asset_updated"
+msgstr "Asset updated successfully"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "js_asset_deleted"
+msgstr "Asset deleted successfully"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "js_delete_failed"
+msgstr "Failed to delete asset"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "js_generic_error"
+msgstr "An error occurred. Please try again."
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "js_validation_error_title"
+msgstr "Validation Error:"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "js_validation_failed"
+msgstr "Validation failed. Please check your input."
+
+# ===== Sorting (Assets & Liabilities pages) =====
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\_sort_control.html
+msgid "sort_label"
+msgstr "Sort"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\_sort_control.html
+msgid "sort_field_date"
+msgstr "Date"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\_sort_control.html
+msgid "sort_field_name"
+msgstr "Name"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\_sort_control.html
+msgid "sort_field_value"
+msgstr "Value"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "sort_date_asc"
+msgstr "Date added: Oldest first"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "sort_date_desc"
+msgstr "Date added: Newest first"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "sort_name_asc"
+msgstr "Name: A to Z"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "sort_name_desc"
+msgstr "Name: Z to A"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "sort_value_desc"
+msgstr "Value: High to Low"
+
+#: .\AssetsLiabilities\static\js\asset_manager.js
+msgid "sort_value_asc"
+msgstr "Value: Low to High"
+
+# ===== AssetsLiabilities Forms - Documents =====
+
+#: .\AssetsLiabilities\forms.py
+msgid "document_name_required"
+msgstr "Document name is required"
+
+#: .\AssetsLiabilities\forms.py
+msgid "document_name_min_length"
+msgstr "Document name must be at least 3 characters long"
+
+#: .\AssetsLiabilities\forms.py
+msgid "document_file_required"
+msgstr "Please choose a file to upload"
+
+#: .\AssetsLiabilities\forms.py
+msgid "document_file_type_error"
+msgstr "Only PDF, PNG, JPG and JPEG files are allowed"
+
+#: .\AssetsLiabilities\forms.py
+msgid "document_file_size_error"
+msgstr "File size must not exceed %(size)s MB"
+
+#: .\AssetsLiabilities\forms.py
+msgid "document_file_content_error"
+msgstr "The file content does not match its file type"
+
+# ===== AssetsLiabilities Models - Documents =====
+
+#: .\AssetsLiabilities\models.py
+msgid "document_name"
+msgstr "Name of the document"
+
+#: .\AssetsLiabilities\models.py
+msgid "document_file"
+msgstr "Uploaded file"
+
+#: .\AssetsLiabilities\models.py
+msgid "document_original_filename"
+msgstr "Original name of the uploaded file"
+
+#: .\AssetsLiabilities\models.py
+msgid "document_file_size"
+msgstr "File size in bytes"
+
+#: .\AssetsLiabilities\models.py
+msgid "document"
+msgstr "Document"
+
+#: .\AssetsLiabilities\models.py
+msgid "documents"
+msgstr "Documents"
+
+# ===== Documents Page =====
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\_sidebar.html
+msgid "nav_documents"
+msgstr "Document Vault"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\documents.html
+msgid "btn_add_document"
+msgstr "Upload Document"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\documents.html
+msgid "modal_add_document"
+msgstr "Upload Document"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\documents.html
+msgid "form_label_document_name"
+msgstr "Document Name"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\documents.html
+msgid "form_help_document_name"
+msgstr "e.g. Health Insurance, Life Insurance"
+
+#: .\AssetsLiabilities\templates\AssetsLiabilities\documents.html
+msgid "form_label_file"
+msgstr "File"
+
+#: .\AssetsLiabilities\views.py
+msgid "form_help_document_file"
+msgstr "Allowed: %(extensions)s. Maximum size: %(size)s MB per file."
+
+#: .\AssetsLiabilities\static\js\document_manager.js
+msgid "btn_view"
+msgstr "View"
+
+#: .\AssetsLiabilities\static\js\document_manager.js
+msgid "btn_download"
+msgstr "Download"
+
+#: .\AssetsLiabilities\static\js\document_manager.js
+msgid "label_uploaded"
+msgstr "Uploaded:"
+
+#: .\AssetsLiabilities\static\js\document_manager.js
+msgid "document_count"
+msgid_plural "document_count_plural"
+msgstr[0] "%(counter)s document"
+msgstr[1] "%(counter)s documents"
+
+#: .\AssetsLiabilities\static\js\document_manager.js
+msgid "js_document_added"
+msgstr "Document uploaded successfully"
+
+#: .\AssetsLiabilities\static\js\document_manager.js
+msgid "js_document_updated"
+msgstr "Document updated successfully"
+
+#: .\AssetsLiabilities\static\js\document_manager.js
+msgid "js_document_deleted"
+msgstr "Document deleted successfully"
+
+#: .\AssetsLiabilities\static\js\document_manager.js
+msgid "js_document_delete_failed"
+msgstr "Failed to delete document"
+
+#: .\AssetsLiabilities\static\js\document_manager.js
+msgid "js_document_load_failed"
+msgstr "Failed to load documents"
+
+#: .\AssetsLiabilities\static\js\document_manager.js
+msgid "js_document_load_details_failed"
+msgstr "Failed to load document details"
+
+#: .\AssetsLiabilities\static\js\document_manager.js
+msgid "js_document_empty_title"
+msgstr "No documents yet"
+
+#: .\AssetsLiabilities\static\js\document_manager.js
+msgid "js_document_empty_hint"
+msgstr "Click the + button to upload your first document"
+
+#: .\AssetsLiabilities\static\js\document_manager.js
+msgid "js_document_current_file"
+msgstr "Current file: %s. Choose a new file only to replace it."
+
+# ===== Admin Console =====
+
+#: .\Users\admin.py
+msgid "admin_site_header"
+msgstr "Finance Manager Administration"
+
+#: .\Users\admin.py
+msgid "admin_site_title"
+msgstr "Finance Manager Admin"
+
+#: .\Users\admin.py
+msgid "admin_index_title"
+msgstr "Manage Data"
+
+#: .\AssetsLiabilities\admin.py .\Users\admin.py
+msgid "admin_fieldset_timestamps"
+msgstr "Timestamps"
+
+#: .\AssetsLiabilities\admin.py
+msgid "admin_col_amount"
+msgstr "Amount"
+
+#: .\AssetsLiabilities\admin.py
+msgid "admin_col_file_type"
+msgstr "File Type"
+
+#: .\AssetsLiabilities\admin.py
+msgid "admin_col_file_size"
+msgstr "Size"
+
+#: .\AssetsLiabilities\admin.py
+msgid "admin_col_file"
+msgstr "File"
+
+#: .\Users\admin.py
+msgid "admin_col_name"
+msgstr "Name"
+
+#: .\Users\admin.py
+msgid "admin_col_mobile"
+msgstr "Mobile"
+
+#: .\Users\admin.py
+msgid "admin_col_email"
+msgstr "Email"
+
+#: .\AssetsLiabilities\admin.py
+msgid "admin_filter_file_type"
+msgstr "file type"
+
+#: .\AssetsLiabilities\admin.py
+msgid "admin_filter_file_size"
+msgstr "file size"
+
+#: .\AssetsLiabilities\admin.py
+msgid "admin_size_under_1mb"
+msgstr "Under 1 MB"
+
+#: .\AssetsLiabilities\admin.py
+msgid "admin_size_1_to_3mb"
+msgstr "1 MB to 3 MB"
+
+#: .\AssetsLiabilities\admin.py
+msgid "admin_size_over_3mb"
+msgstr "Over 3 MB"
+
+# ===== User Profile - Data Export / Import =====
+
+#: .\Users\templates\Users\profile.html
+msgid "profile_export_title"
+msgstr "Export Data"
+
+#: .\Users\templates\Users\profile.html
+msgid "profile_export_text"
+msgstr "Download all your assets, liabilities and transfers & dues as a JSON file. Documents are not included."
+
+#: .\Users\templates\Users\profile.html
+msgid "btn_export_data"
+msgstr "Export JSON"
+
+#: .\Users\templates\Users\profile.html
+msgid "profile_import_title"
+msgstr "Import Data"
+
+#: .\Users\templates\Users\profile.html
+msgid "profile_import_text"
+msgstr "Upload a JSON file exported from Finance Manager to create its assets, liabilities and transfers & dues in your account. Documents are not imported."
+
+#: .\Users\templates\Users\profile.html
+msgid "form_label_import_file"
+msgstr "JSON File"
+
+#: .\Users\views.py
+msgid "form_help_import_file"
+msgstr "Only .json files exported from Finance Manager. Maximum size: %(size)s MB."
+
+#: .\Users\templates\Users\profile.html
+msgid "form_label_replace_existing"
+msgstr "Replace my existing data"
+
+#: .\Users\templates\Users\profile.html
+msgid "form_help_replace_existing"
+msgstr "When checked, your current assets, liabilities and transfers & dues are deleted before importing. Documents are kept. When unchecked, the file is added to your existing data."
+
+#: .\Users\templates\Users\profile.html
+msgid "btn_import_data"
+msgstr "Import JSON"
+
+#: .\Users\templates\Users\profile.html
+msgid "import_replace_confirm_title"
+msgstr "Replace existing data?"
+
+#: .\Users\templates\Users\profile.html
+msgid "import_replace_confirm_text"
+msgstr "All your current assets, liabilities and transfers & dues will be deleted and replaced with the contents of the file. Documents are kept. This action cannot be undone."
+
+#: .\Users\templates\Users\profile.html
+msgid "btn_replace_and_import"
+msgstr "Replace and Import"
+
+#: .\AssetsLiabilities\forms.py
+msgid "import_file_required"
+msgstr "Please choose a JSON file to import"
+
+#: .\AssetsLiabilities\forms.py
+msgid "import_file_type_error"
+msgstr "Only .json files are allowed"
+
+#: .\AssetsLiabilities\forms.py
+msgid "import_file_size_error"
+msgstr "File size must not exceed %(size)s MB"
+
+#: .\AssetsLiabilities\forms.py
+msgid "import_file_invalid_json"
+msgstr "The file is not valid JSON"
+
+#: .\AssetsLiabilities\forms.py
+msgid "import_file_not_export"
+msgstr "This file is not a Finance Manager export"
+
+#: .\AssetsLiabilities\forms.py
+msgid "import_file_version_error"
+msgstr "This export file version is not supported"
+
+#: .\AssetsLiabilities\data_transfer.py
+msgid "import_error_section_not_list"
+msgstr "%(section)s: expected a list of items"
+
+#: .\AssetsLiabilities\data_transfer.py
+msgid "import_error_item_not_object"
+msgstr "%(section)s, item %(index)s: expected an object"
+
+#: .\AssetsLiabilities\data_transfer.py
+msgid "import_error_record_field"
+msgstr "%(section)s, item %(index)s, %(field)s: %(message)s"
+
+#: .\AssetsLiabilities\data_transfer.py
+msgid "import_error_record"
+msgstr "%(section)s, item %(index)s: %(message)s"
+
+#: .\AssetsLiabilities\data_transfer.py
+msgid "import_error_empty"
+msgstr "The file does not contain any records to import"
+
+#: .\Users\views.py
+msgid "import_error_records"
+msgid_plural "import_error_records_plural"
+msgstr[0] "%(count)s problem found in the file. Nothing was imported."
+msgstr[1] "%(count)s problems found in the file. Nothing was imported."
+
+#: .\Users\views.py
+msgid "import_error_more"
+msgstr "...and %(count)s more"
+
+#: .\Users\static\js\user_profile.js
+msgid "js_import_success"
+msgid_plural "js_import_success_plural"
+msgstr[0] "%(count)s record imported successfully"
+msgstr[1] "%(count)s records imported successfully"

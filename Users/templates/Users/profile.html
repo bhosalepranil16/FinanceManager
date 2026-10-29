@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "nav_user_profile" %} - {% trans "app_name" %}{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/portfolio_overview.css' %}">
+<link rel="stylesheet" href="{% static 'css/asset_components.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="toast-container"></div>
+
+{% include 'AssetsLiabilities/_sidebar.html' with active_page='user_profile' %}
+
+<main class="main-content" id="mainContent">
+    <div class="content-section">
+        <div class="section-header">
+            <div>
+                <h1 class="section-title">{{ user.username }}</h1>
+            </div>
+        </div>
+
+        <div class="card-grid">
+            <!-- Export -->
+            <div class="asset-card profile-card">
+                <div class="card-header">
+                    <h6 class="card-title">{% trans "profile_export_title" %}</h6>
+                </div>
+                <div class="card-body">
+                    <p class="profile-card-text">{% trans "profile_export_text" %}</p>
+                    <a href="{% url 'user_profile_export' %}" class="btn btn-primary btn-block" id="profile-export-btn">
+                        {% trans "btn_export_data" %}
+                    </a>
+                </div>
+            </div>
+
+            <!-- Import -->
+            <div class="asset-card profile-card">
+                <div class="card-header">
+                    <h6 class="card-title">{% trans "profile_import_title" %}</h6>
+                </div>
+                <div class="card-body">
+                    <p class="profile-card-text">{% trans "profile_import_text" %}</p>
+                    <form id="profile-import-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="profile-import-file" class="form-label">{% trans "form_label_import_file" %}</label>
+                            <input type="file" class="form-control" id="profile-import-file" name="file" accept=".json,application/json" required>
+                            <small class="form-text">{{ import_help_text }}</small>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="profile-import-replace_existing" name="replace_existing">
+                                <label for="profile-import-replace_existing" class="form-check-label">{% trans "form_label_replace_existing" %}</label>
+                            </div>
+                            <small class="form-text">{% trans "form_help_replace_existing" %}</small>
+                        </div>
+
+                        <div class="alert alert-success d-none" id="profile-import-result"></div>
+                        <div class="alert alert-danger d-none" id="profile-import-errors"></div>
+
+                        <button type="submit" class="btn btn-primary btn-block" id="profile-import-btn">
+                            {% trans "btn_import_data" %}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Replace Confirmation Modal -->
+<div class="modal fade" id="profile-import-confirm-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{% trans "import_replace_confirm_title" %}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'btn_close' %}"></button>
+            </div>
+            <div class="modal-body">
+                <p>{% trans "import_replace_confirm_text" %}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "btn_cancel" %}</button>
+                <button type="button" class="btn btn-danger" id="profile-import-confirm-btn">{% trans "btn_replace_and_import" %}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js_files %}
+<script src="{% static 'js/portfolio_overview.js' %}"></script>
+<script src="{% static 'js/user_profile.js' %}"></script>
+<script>
+$(document).ready(function() {
+    // Initialize profile manager - constructor sets up event handlers
+    new UserProfileManager({
+        importUrl: '{% url "user_profile_import" %}',
+        maxFileSize: {{ import_max_file_size }}
+    });
+});
+</script>
+{% endblock %}

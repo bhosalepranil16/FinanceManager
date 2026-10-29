@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "nav_mutual_funds" %} - {% trans "app_name" %}{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/portfolio_overview.css' %}">
+<link rel="stylesheet" href="{% static 'css/asset_components.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="toast-container"></div>
+
+{% include 'AssetsLiabilities/_sidebar.html' with active_page='mutual_funds' %}
+
+<main class="main-content" id="mainContent">
+    <div class="content-section">
+        <div class="section-header">
+            <div>
+                <h1 class="section-title">{% trans "nav_mutual_funds" %}</h1>
+                <div class="section-total" id="mutual-funds-total">₹0</div>
+            </div>
+            <div class="section-actions">
+                {% include 'AssetsLiabilities/_sort_control.html' with asset_type='mutual-funds' %}
+                <button class="btn-add" id="add-mutual-funds-btn">
+                    <span class="icon-add"></span>
+                    {% trans "btn_add_asset" %}
+                </button>
+            </div>
+        </div>
+
+        <div id="mutual-funds-list" class="loading">
+            <div class="loading-overlay">
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="modal fade" id="mutual-funds-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mutual-funds-modal-title">{% trans "modal_add_mutual_fund" %}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="mutual-funds-form">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="mutual-funds-name" class="form-label">{% trans "form_label_name" %}</label>
+                        <input type="text" class="form-control" id="mutual-funds-name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mutual-funds-amount" class="form-label">{% trans "form_label_amount" %}</label>
+                        <input type="number" class="form-control" id="mutual-funds-amount" name="amount" required min="1" step="0.01">
+                        <small class="form-text">{% trans "form_help_amount" %}</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">{% trans "form_label_asset_allocation" %}</label>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <label for="mutual-funds-large_cap_percentage" class="form-label">{% trans "form_label_large_cap_percentage" %}</label>
+                                <input type="number" class="form-control percentage-input" id="mutual-funds-large_cap_percentage" name="large_cap_percentage" required min="0" max="100" step="1" value="0">
+                            </div>
+                            <div class="col-6">
+                                <label for="mutual-funds-mid_cap_percentage" class="form-label">{% trans "form_label_mid_cap_percentage" %}</label>
+                                <input type="number" class="form-control percentage-input" id="mutual-funds-mid_cap_percentage" name="mid_cap_percentage" required min="0" max="100" step="1" value="0">
+                            </div>
+                            <div class="col-6">
+                                <label for="mutual-funds-small_cap_percentage" class="form-label">{% trans "form_label_small_cap_percentage" %}</label>
+                                <input type="number" class="form-control percentage-input" id="mutual-funds-small_cap_percentage" name="small_cap_percentage" required min="0" max="100" step="1" value="0">
+                            </div>
+                            <div class="col-6">
+                                <label for="mutual-funds-debt_percentage" class="form-label">{% trans "form_label_debt_percentage" %}</label>
+                                <input type="number" class="form-control percentage-input" id="mutual-funds-debt_percentage" name="debt_percentage" required min="0" max="100" step="1" value="0">
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <small class="form-text">{% trans "form_help_percentage" %}</small>
+                            <div class="percentage-total-indicator mt-2" id="percentage-total">
+                                <span class="percentage-label">{% trans "form_label_current_total" %}</span>
+                                <span class="percentage-value" id="percentage-sum">0</span>%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "btn_cancel" %}</button>
+                    <button type="submit" class="btn btn-primary">{% trans "btn_save" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js_files %}
+<script src="{% static 'js/portfolio_overview.js' %}"></script>
+<script src="{% static 'js/asset_manager.js' %}"></script>
+<script>
+$(document).ready(function() {
+    // Initialize asset manager - constructor sets up event handlers and loads data
+    new AssetManager({
+        assetType: 'mutual-funds',
+        sortable: true,
+        hasTypes: false,
+        apiEndpoints: {
+            list: '{% url "mutual_fund_list" %}',
+            create: '{% url "mutual_fund_create" %}',
+            detail: '/mutual-funds/',
+            update: '/mutual-funds/',
+            delete: '/mutual-funds/'
+        }
+    });
+    
+    // Real-time percentage calculator
+    function updatePercentageTotal() {
+        const largeCap = parseInt($('#mutual-funds-large_cap_percentage').val()) || 0;
+        const midCap = parseInt($('#mutual-funds-mid_cap_percentage').val()) || 0;
+        const smallCap = parseInt($('#mutual-funds-small_cap_percentage').val()) || 0;
+        const debt = parseInt($('#mutual-funds-debt_percentage').val()) || 0;
+        
+        const total = largeCap + midCap + smallCap + debt;
+        const sumElement = $('#percentage-sum');
+        const indicator = $('#percentage-total');
+        
+        sumElement.text(total);
+        
+        // Update color based on total
+        indicator.removeClass('is-valid is-invalid is-warning');
+        if (total === 100) {
+            indicator.addClass('is-valid');
+        } else if (total > 100) {
+            indicator.addClass('is-invalid');
+        } else {
+            indicator.addClass('is-warning');
+        }
+    }
+    
+    // Bind to percentage inputs
+    $('.percentage-input').on('input change', updatePercentageTotal);
+    
+    // Update on modal show (for edit mode)
+    $('#mutual-funds-modal').on('shown.bs.modal', updatePercentageTotal);
+});
+</script>
+{% endblock %}
