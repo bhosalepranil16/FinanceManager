@@ -1,0 +1,23 @@
+# Rendered by the nginx image at startup; ${APP_PORT} comes from the container environment.
+server {
+    listen 80;
+    server_name _;
+    client_max_body_size 25m;
+
+    # Collected static files, shared read-only from the backend container.
+    location /static/ {
+        alias /srv/static/;
+        expires 7d;
+        access_log off;
+    }
+
+    # Uploaded documents are never served here; Django serves them through login-protected views.
+    location / {
+        proxy_pass http://backend:${APP_PORT};
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 120s;
+    }
+}
